@@ -84,10 +84,10 @@
                                 android:padding="10dp">
 
                                 <TextView
-                                    android:id="@+id/num_post"
+                                    android:id="@+id/educationleveldesc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="8" />
+                                    android:text="Degree" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -106,10 +106,10 @@
                                 android:padding="10dp">
 
                                 <TextView
-                                    android:id="@+id/num_joined"
+                                    android:id="@+id/workexp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="2" />
+                                    android:text="2 years" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
