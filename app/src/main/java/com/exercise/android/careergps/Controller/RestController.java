@@ -28,6 +28,7 @@ public class RestController extends AsyncTask<String, Void, String> {
     private AlertBox ab = new AlertBox();
    // private Travelpost tp;
     private Gson gson = new Gson();
+    HashMap<String, String> data = new HashMap<>();
     private SharedPreferences mPrefs;
     private OnClickMethod ocm = new OnClickMethod();
     private String link;
@@ -41,6 +42,7 @@ public class RestController extends AsyncTask<String, Void, String> {
         //   tp = gson.fromJson(, Travelpost.class);
         mCallback = cmf;
         this.link = link;
+        this.data = data;
 
     }
 
@@ -54,7 +56,6 @@ public class RestController extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         String response = "";
         try {
-            HashMap<String, String> data = new HashMap<>();
             REST rest = new REST();
             response = rest.ClientData(link, data, "GET");
             Thread.sleep(2000);
