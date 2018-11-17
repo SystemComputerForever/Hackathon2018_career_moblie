@@ -1,118 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/progress_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:text="Jobs filter"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <!-- title key word -->
+                <LinearLayout
+                    style="@style/search_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Search title"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/keyword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/textbox_almostcircle"
+                        android:hint="Enter a keyword"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+                <!-- managerial level -->
+                <LinearLayout
+                    style="@style/search_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Managerial level" />
+
+
+                    <Spinner
+                        android:id="@+id/managerialleveldesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:autofillHints="All"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp" />
+
+                </LinearLayout>
+
+                <!-- education level -->
+                <LinearLayout
+                    style="@style/search_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Education level" />
+
+                    <Spinner
+                        android:id="@+id/educationleveldesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:autofillHints="All"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp" />
+                </LinearLayout>
+
+                <!-- workexperience -->
+                <LinearLayout
+                    style="@style/search_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="workexperience" />
+
+                    <Spinner
+                        android:id="@+id/workexp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:autofillHints="All"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp" />
+                </LinearLayout>
+
+                <!-- salary -->
+                <LinearLayout
+                    style="@style/search_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Salary:" />
+
+                    <EditText
+                        android:id="@+id/minsalary"
+                        style="@style/search_salary_edittext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:hint="min salary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="To" />
+
+                    <EditText
+                        android:id="@+id/maxsalary"
+                        style="@style/search_salary_edittext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:hint="max salary" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Jobs filter" />
+            android:layout_gravity="bottom">
 
-        <!-- title key word -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Search title" />
-
-            <EditText
-                android:id="@+id/keyword"
+            <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter a keyword" />
-
+                android:layout_height="match_parent"
+                android:text="search by the condition" />
         </LinearLayout>
-
-        <!-- industry -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Industry" />
-
-            <Spinner
-                android:id="@+id/industrydesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <!-- education level -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Industry" />
-
-            <Spinner
-                android:id="@+id/educationleveldesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- workexperience -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="workexperience" />
-
-            <Spinner
-                android:id="@+id/workexp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- salary -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="salary:" />
-
-            <EditText
-                android:id="@+id/minsalary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <EditText
-                android:id="@+id/maxsalary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="search by the condition" />
 
     </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
