@@ -13,23 +13,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Job title -->
             <TextView
-                android:id="@+id/job_title"
+                android:id="@+id/jobtitletext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="Job title"
-                android:textSize="20sp"
+                android:layout_marginBottom="5dp"
+                android:text="Executive Secretary & Senior HR Administrator - People Department (Ref: CFL-P-ESSHRA)"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <!-- Company name -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,35 +45,37 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:text="Start date : "/>
+                    android:text="Pulisher : " />
 
                 <TextView
-                    android:id="@+id/startdate"
+                    android:id="@+id/displayname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="21 Dec 2018" />
+                    android:text="SOUTH CHINA MORNING POST PUBLISHERS LTD" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        </LinearLayout>
+
+        <!-- Post date -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Post date : " />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Pulisher : "/>
-
-                <TextView
-                    android:id="@+id/userid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="userid1234" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/activationdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21 Dec 2018" />
 
         </LinearLayout>
 
