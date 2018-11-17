@@ -9,6 +9,7 @@
     <string-array name="industry_ary">
         <item>Banking</item>
         <item>Media / Publishing</item>
+        <item>Engineering</item>
     </string-array>
     <string-array name="experience_ary">
         <item>0</item>
