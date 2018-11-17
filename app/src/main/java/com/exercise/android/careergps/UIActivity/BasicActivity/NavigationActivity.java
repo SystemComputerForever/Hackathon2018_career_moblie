@@ -17,6 +17,7 @@ import android.widget.ImageView;
 
 import com.exercise.android.careergps.MyApplication;
 import com.exercise.android.careergps.R;
+import com.exercise.android.careergps.UIActivity.ProfileActivity;
 
 /**
  * Created by Benix on 17/11/2018.
@@ -26,6 +27,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     private Intent myIntent = null;
     private Context mContext;
     private ImageView imgicon;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +55,10 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         imgicon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-           /*     myIntent = new Intent(MyApplication.getAppContext(), ProfileActivity.class);
+                myIntent = new Intent(MyApplication.getAppContext(), ProfileActivity.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
-                mContext.startActivity(myIntent, options.toBundle());*/
+                mContext.startActivity(myIntent, options.toBundle());
             }
         });
     }
@@ -74,7 +76,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      //  getMenuInflater().inflate(R.menu.dropdownmenu, menu);
+        //  getMenuInflater().inflate(R.menu.dropdownmenu, menu);
         return true;
     }
 
