@@ -32,7 +32,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
     @Override
     public CommentAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.carditem_job, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem_comment, parent, false);
         //     ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         //  layoutParams.width = ((Activity) parent.getContext()).getWindowManager().getDefaultDisplay().getWidth() / 3;
         //  view.setLayoutParams(layoutParams);
@@ -68,18 +68,20 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView jobtitletext;
-        TextView salary;
-        TextView displayname;
-        TextView activationdate;
+        TextView position;
+        TextView department;
+        TextView educationleveldesc;
+        TextView workexp;
+        TextView add_content;
 
 
         ViewHolder(View v) {
             super(v);
-            jobtitletext = v.findViewById(R.id.jobtitletext);
-            salary = v.findViewById(R.id.salary);
-            displayname = v.findViewById(R.id.displayname);
-            activationdate = v.findViewById(R.id.activationdate);
+            position = v.findViewById(R.id.position);
+            department = v.findViewById(R.id.department);
+            educationleveldesc = v.findViewById(R.id.educationleveldesc);
+            workexp = v.findViewById(R.id.workexp);
+            add_content = v.findViewById(R.id.add_content);
         }
     }
 }

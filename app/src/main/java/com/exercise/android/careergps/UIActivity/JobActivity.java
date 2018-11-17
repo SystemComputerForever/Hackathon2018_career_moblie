@@ -104,7 +104,7 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
                         break;
                     case chosen2:
                         mydialog.setContentView(R.layout.popup2);
-                        btn_join.setText("Join now");
+                        btn_join.setText("Apply");
                         break;
                     default:
                         break;
@@ -154,15 +154,10 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
 
     @Override
     public void done(String result) {
-        try {
-            JSONObject j = new JSONObject(result);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         ArrayList<Jobpost> travelposts = new ArrayList<Jobpost>();
         try {
             JSONArray travelpostsary = new JSONArray(result);
-            for (int i = 0; i < travelpostsary.length() - 1; i++) {
+            for (int i = 0; i < travelpostsary.length() ; i++) {
                 Jobpost onepost = new Jobpost(travelpostsary.getJSONObject(i).getString(variable.values()[0].name()), travelpostsary.getJSONObject(i).getString(variable.values()[1].name()), travelpostsary.getJSONObject(i).getString(variable.values()[2].name()), travelpostsary.getJSONObject(i).getString(variable.values()[3].name()), travelpostsary.getJSONObject(i).getString(variable.values()[4].name()), travelpostsary.getJSONObject(i).getString(variable.values()[5].name()), travelpostsary.getJSONObject(i).getString(variable.values()[6].name()), travelpostsary.getJSONObject(i).getString(variable.values()[7].name()), travelpostsary.getJSONObject(i).getString(variable.values()[8].name()), travelpostsary.getJSONObject(i).getString(variable.values()[9].name()), travelpostsary.getJSONObject(i).getString(variable.values()[10].name()), travelpostsary.getJSONObject(i).getString(variable.values()[11].name()), travelpostsary.getJSONObject(i).getString(variable.values()[12].name()), travelpostsary.getJSONObject(i).getString(variable.values()[13].name()));
                 travelposts.add(onepost);
             }
@@ -188,11 +183,12 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
 
     public void commentonclick(View v) {
 
-        if (postjob.getVisibility() == View.INVISIBLE) {
+        if (postjob.getVisibility() == View.GONE ){
             postjob.setVisibility(View.VISIBLE);
+
             ((Button) v).setText("Hide Comment Form");
         } else {
-            postjob.setVisibility(View.INVISIBLE);
+            postjob.setVisibility(View.GONE);
             ((Button) v).setText("Show Comment Form");
         }
         /*Intent myIntent = new Intent(MyApplication.getAppContext(), CommentActivity.class);
@@ -202,7 +198,7 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
 
     }
 
-    public void btn_showhide(View v) {
+    public void addcomment(View v) {
         SharedPreferences prefs = getSharedPreferences("mprefs", MODE_PRIVATE);
         String restoredText = prefs.getString("user", null);
         User user = gson.fromJson(restoredText, User.class);
@@ -211,8 +207,10 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
         commentdata.put("comment", add_content.getText().toString());
         commentdata.put("position", add_position.getText().toString());
         commentdata.put("department", add_department.getText().toString());
-        tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/comment/addcomment", commentdata, null);
-        tpc.execute();
-        refresh();
+        synchronized (mContext) {
+            tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/comment/addcomment", commentdata, null);
+            tpc.execute();
+        }
+        //refresh();
     }
 }
