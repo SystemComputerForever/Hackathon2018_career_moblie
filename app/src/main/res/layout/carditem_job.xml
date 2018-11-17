@@ -90,6 +90,7 @@
                 android:id="@+id/activationdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:text="21 Dec 2018" />
 
         </LinearLayout>
