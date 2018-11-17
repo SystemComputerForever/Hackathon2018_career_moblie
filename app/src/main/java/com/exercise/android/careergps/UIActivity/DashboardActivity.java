@@ -13,7 +13,6 @@ import com.exercise.android.careergps.Adapter.JobAdapter;
 import com.exercise.android.careergps.Controller.RestController;
 import com.exercise.android.careergps.Function.CallBackFunction;
 import com.exercise.android.careergps.Function.FileHandler;
-import com.exercise.android.careergps.Function.GetData;
 import com.exercise.android.careergps.Item.Jobpost;
 import com.exercise.android.careergps.R;
 import com.exercise.android.careergps.UIActivity.BasicActivity.NavigationActivity;
@@ -38,7 +37,7 @@ public class DashboardActivity extends NavigationActivity implements  CallBackFu
     ;
     private RecyclerView recyclerView;
     private enum variable {
-        id, jobtitletext, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary , skill
+        post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary, skills;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class DashboardActivity extends NavigationActivity implements  CallBackFu
        // new GetData().GetCountry();
         //you need to save the exist user here first
         // fh.saveFile("user",)
-       GridLayoutManager gl = new GridLayoutManager(this, 1);
+     /*  GridLayoutManager gl = new GridLayoutManager(this, 1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this); //設定此 layoutManager 為 linearlayout (類似ListView)
         //  layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView = findViewById(R.id.recyclerView_job);
@@ -65,7 +64,7 @@ public class DashboardActivity extends NavigationActivity implements  CallBackFu
         j.add(job);
         JobAdapter myAdapter = new JobAdapter(j, mContext);
         recyclerView.setAdapter(myAdapter); //設定 Adapter*/
-       // GridLayoutManager gl = new GridLayoutManager(this, 2);
+        GridLayoutManager gl = new GridLayoutManager(this, 2);
         recyclerView = findViewById(R.id.recyclerView_job);
         //  LinearLayoutManager layoutManager = new LinearLayoutManager(this); //設定此 layoutManager 為 linearlayout (類似ListView)
         //  layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -75,7 +74,7 @@ public class DashboardActivity extends NavigationActivity implements  CallBackFu
     }
 
     public void refresh() {
-        tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/plans/getplans", data, (CallBackFunction) mContext);
+        tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/jobpost/getposts", data, (CallBackFunction) mContext);
         tpc.execute();
     }
 

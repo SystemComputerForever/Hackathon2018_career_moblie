@@ -6,4 +6,18 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string-array name="industry_ary">
+        <item>Banking</item>
+        <item>Media / Publishing</item>
+    </string-array>
+    <string-array name="experience_ary">
+        <item>0</item>
+        <item>1</item>
+        <item>More Than 2</item>
+    </string-array>
+    <string-array name="education_ary">
+        <item>Bachelor Degree</item>
+        <item>Diploma / Certificate</item>
+        <item>Master Degree</item>
+    </string-array>
 </resources>

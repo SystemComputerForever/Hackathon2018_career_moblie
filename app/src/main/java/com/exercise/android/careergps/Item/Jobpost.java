@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 
 public class Jobpost implements Serializable {
-    public String id, jobtitletext, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary, skill;
+    public String post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary, skills;
 
     public String getSalary() {
         return salary;
@@ -17,21 +17,20 @@ public class Jobpost implements Serializable {
         this.salary = salary;
     }
 
-    public String getSkill() {
-        return skill;
+    public String getskills() {
+        return skills;
     }
 
-    public void setSkill(String skill) {
-        this.skill = skill;
+    public void setskills(String skills) {
+        this.skills = skills;
     }
 
-    public Jobpost(String id, String jobtitletext, String displayname, String managerialleveldesc, String shortdescription, String fielddesc, String subfield, String industrydesc, String minexp, String maxexp, String activationdate, String educationleveldesc, String salary, String skill) {
-        this.id = id;
-        this.jobtitletext = jobtitletext;
+    public Jobpost(String post_id, String jobtitle, String displayname, String managerialleveldesc, String shortdescription, String fielddesc, String subfield, String industrydesc, String minexp, String maxexp, String activationdate, String educationleveldesc, String salary, String skills) {
+        this.post_id = post_id;
+        this.jobtitle = jobtitle;
         this.displayname = displayname;
         this.managerialleveldesc = managerialleveldesc;
         this.shortdescription = shortdescription;
-
         this.fielddesc = fielddesc;
         this.subfield = subfield;
         this.industrydesc = industrydesc;
@@ -40,23 +39,23 @@ public class Jobpost implements Serializable {
         this.activationdate = activationdate;
         this.educationleveldesc = educationleveldesc;
         this.salary = salary;
-        this.skill = skill;
+        this.skills = skills;
     }
 
     public String getId() {
-        return id;
+        return post_id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String post_id) {
+        this.post_id = post_id;
     }
 
-    public String getJobtitletext() {
-        return jobtitletext;
+    public String getjobtitle() {
+        return jobtitle;
     }
 
-    public void setJobtitletext(String jobtitletext) {
-        this.jobtitletext = jobtitletext;
+    public void setjobtitle(String jobtitle) {
+        this.jobtitle = jobtitle;
     }
 
     public String getDisplayname() {
