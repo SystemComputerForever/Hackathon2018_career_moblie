@@ -1,17 +1,22 @@
 package com.exercise.android.careergps.UIActivity;
 
+import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.exercise.android.careergps.Controller.RestController;
 import com.exercise.android.careergps.Function.CallBackFunction;
 import com.exercise.android.careergps.Item.Jobpost;
+import com.exercise.android.careergps.MyApplication;
 import com.exercise.android.careergps.R;
 import com.exercise.android.careergps.UIActivity.BasicActivity.NoNavigationActivity;
 
@@ -30,12 +35,17 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
     private DrawerLayout mydrawer;
     private View progress_form;
     private Button btn_join;
+    private CardView postjob;
+    private EditText add_position;
+    private EditText add_department;
+    private EditText add_content;
+
     private HashMap<String, String> data = new HashMap<>();
-    public static final String chosen1 = "Join now";
-    public static final String chosen2 = "CANCEL APPLICATION";
+    public static final String chosen1 = "Apply";
+    public static final String chosen2 = "CANCEL";
 
     private enum variable {
-        id, jobtitletext, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary, skill
+        post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary, skills
     }
 
     @Override
@@ -45,7 +55,11 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
         btn_join = findViewById(R.id.btn_join);
         mContext = this;
         mydrawer = findViewById(R.id.drawer_layout);
+        add_position = findViewById(R.id.add_position);
+        add_department = findViewById(R.id.add_depatment);
+        add_content = findViewById(R.id.add_content);
         progress_form = findViewById(R.id.progress_form);
+        postjob = findViewById(R.id.add_comment);
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +67,7 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
                 switch (btn_join.getText().toString()) {
                     case chosen1:
                         mydialog.setContentView(R.layout.popup);
-                        btn_join.setText("CANCEL APPLICATION");
+                        btn_join.setText("CANCEL");
                         break;
                     case chosen2:
                         mydialog.setContentView(R.layout.popup2);
@@ -120,5 +134,29 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
             ex.printStackTrace();
         }
 
+    }
+
+    public void commentonclick(View v) {
+
+        if (postjob.getVisibility() == View.INVISIBLE) {
+            postjob.setVisibility(View.VISIBLE);
+        } else {
+            postjob.setVisibility(View.INVISIBLE);
+        }
+        /*Intent myIntent = new Intent(MyApplication.getAppContext(), CommentActivity.class);
+        ActivityOptions options =
+                ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
+        mContext.startActivity(myIntent, options.toBundle());*/
+
+    }
+
+    public void btn_showhide(View v) {
+        HashMap<String, String> commentdata = new HashMap<>();
+        commentdata.put("u_id", "");
+        commentdata.put("comment", add_content.getText().toString());
+        commentdata.put("position", add_position.getText().toString());
+        commentdata.put("department", add_department.getText().toString());
+        tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/comment/addcomment", commentdata, (CallBackFunction) mContext);
+        tpc.execute();
     }
 }

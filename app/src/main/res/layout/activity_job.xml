@@ -433,7 +433,7 @@
                             android:id="@+id/add_content"
                             android:layout_width="match_parent"
                             android:background="@drawable/textbox_rectangle"
-                            pa
+
                             android:layout_height="wrap_content"
                             android:hint="Tell us your opinion"/>
 
