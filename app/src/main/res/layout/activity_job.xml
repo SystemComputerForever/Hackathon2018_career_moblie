@@ -355,7 +355,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:visibility="gone"
-                app:cardBackgroundColor="#EEFFFFFF"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="5dp">
 
@@ -511,15 +511,15 @@
                             android:textSize="10sp" />
                     </LinearLayout>
 
-                    <view
+                    <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="5dp"
                         android:background="#888888" />
 
                     <!-- listitem_comment -->
-                    <ListView
-                        android:id="@+id/listview_comment"
+                    <view class="android.support.v7.app.AlertController$RecycleListView"
+                        android:id="@+id/recycleLView_comment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
