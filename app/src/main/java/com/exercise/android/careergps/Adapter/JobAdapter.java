@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.exercise.android.careergps.Item.Jobpost;
+import com.exercise.android.careergps.MyApplication;
 import com.exercise.android.careergps.R;
+import com.exercise.android.careergps.UIActivity.JobActivity;
 
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
         this.data = data;
         this.mContext = mContext;
     }
+
     @Override
     public JobAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.carditem_job, parent, false);
@@ -41,17 +44,16 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.jobtitletext.setText(data.get(position).getJobtitletext());
+        holder.jobtitletext.setText(data.get(position).getjobtitle());
         holder.salary.setText(data.get(position).getManagerialleveldesc());
         holder.displayname.setText(data.get(position).getSalary());
         holder.activationdate.setText(data.get(position).getActivationdate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent myIntent = new Intent(mContext, PostActivity.class);
-               // ActivityOptions options =
-                  //      ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
-                //mContext.startActivity(myIntent, options.toBundle());
+                Intent myIntent = new Intent(mContext, JobActivity.class);
+                ActivityOptions options = ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
+                mContext.startActivity(myIntent, options.toBundle());
             }
         });
     }
