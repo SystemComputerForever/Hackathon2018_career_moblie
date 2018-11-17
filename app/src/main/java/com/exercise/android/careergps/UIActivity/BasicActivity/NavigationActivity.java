@@ -53,10 +53,10 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         imgicon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myIntent = new Intent(MyApplication.getAppContext(), ProfileActivity.class);
+           /*     myIntent = new Intent(MyApplication.getAppContext(), ProfileActivity.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
-                mContext.startActivity(myIntent, options.toBundle());
+                mContext.startActivity(myIntent, options.toBundle());*/
             }
         });
     }
@@ -74,7 +74,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.dropdownmenu, menu);
+      //  getMenuInflater().inflate(R.menu.dropdownmenu, menu);
         return true;
     }
 
@@ -100,14 +100,14 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_allpost) {
+       /* if (id == R.id.nav_allpost) {
             myIntent = new Intent(MyApplication.getAppContext(), TravelpostActivity.class);
         } else if (id == R.id.nav_myplan) {
             myIntent = new Intent(MyApplication.getAppContext(), MyplanActivity.class);
         } else if (id == R.id.nav_history) {
             myIntent = new Intent(MyApplication.getAppContext(), PreviouspostActivity.class);
 
-        }
+        }*/
         ActivityOptions options =
                 ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
         mContext.startActivity(myIntent, options.toBundle());

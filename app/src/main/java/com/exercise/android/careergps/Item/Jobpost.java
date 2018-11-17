@@ -7,14 +7,31 @@ import java.io.Serializable;
  */
 
 public class Jobpost implements Serializable {
-    public String id, jobtitletext, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc;
+    public String id, jobtitletext, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary, skill;
 
-    public Jobpost(String id, String jobtitletext, String displayname, String managerialleveldesc, String shortdescription, String fielddesc, String subfield, String industrydesc, String minexp, String maxexp, String activationdate, String educationleveldesc) {
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public Jobpost(String id, String jobtitletext, String displayname, String managerialleveldesc, String shortdescription, String fielddesc, String subfield, String industrydesc, String minexp, String maxexp, String activationdate, String educationleveldesc, String salary, String skill) {
         this.id = id;
         this.jobtitletext = jobtitletext;
         this.displayname = displayname;
         this.managerialleveldesc = managerialleveldesc;
         this.shortdescription = shortdescription;
+
         this.fielddesc = fielddesc;
         this.subfield = subfield;
         this.industrydesc = industrydesc;
@@ -22,6 +39,8 @@ public class Jobpost implements Serializable {
         this.maxexp = maxexp;
         this.activationdate = activationdate;
         this.educationleveldesc = educationleveldesc;
+        this.salary = salary;
+        this.skill = skill;
     }
 
     public String getId() {
