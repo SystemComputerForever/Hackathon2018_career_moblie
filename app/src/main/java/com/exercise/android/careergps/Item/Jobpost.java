@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 
 public class Jobpost implements Serializable {
-    public String post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary, skills;
+    public String post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfielddesc, industrydesc, minexp, maxexp, date, education, salary, skills;
 
     public String getSalary() {
         return salary;
@@ -25,19 +25,19 @@ public class Jobpost implements Serializable {
         this.skills = skills;
     }
 
-    public Jobpost(String post_id, String jobtitle, String displayname, String managerialleveldesc, String shortdescription, String fielddesc, String subfield, String industrydesc, String minexp, String maxexp, String activationdate, String educationleveldesc, String salary, String skills) {
+    public Jobpost(String post_id, String jobtitle, String displayname, String managerialleveldesc, String shortdescription, String fielddesc, String subfielddesc, String industrydesc, String minexp, String maxexp, String date, String education, String salary, String skills) {
         this.post_id = post_id;
         this.jobtitle = jobtitle;
         this.displayname = displayname;
         this.managerialleveldesc = managerialleveldesc;
         this.shortdescription = shortdescription;
         this.fielddesc = fielddesc;
-        this.subfield = subfield;
+        this.subfielddesc = subfielddesc;
         this.industrydesc = industrydesc;
         this.minexp = minexp;
         this.maxexp = maxexp;
-        this.activationdate = activationdate;
-        this.educationleveldesc = educationleveldesc;
+        this.date = date;
+        this.education = education;
         this.salary = salary;
         this.skills = skills;
     }
@@ -90,12 +90,12 @@ public class Jobpost implements Serializable {
         this.fielddesc = fielddesc;
     }
 
-    public String getSubfield() {
-        return subfield;
+    public String getsubfielddesc() {
+        return subfielddesc;
     }
 
-    public void setSubfield(String subfield) {
-        this.subfield = subfield;
+    public void setsubfielddesc(String subfielddesc) {
+        this.subfielddesc = subfielddesc;
     }
 
     public String getIndustrydesc() {
@@ -122,19 +122,19 @@ public class Jobpost implements Serializable {
         this.maxexp = maxexp;
     }
 
-    public String getActivationdate() {
-        return activationdate;
+    public String getdate() {
+        return date;
     }
 
-    public void setActivationdate(String activationdate) {
-        this.activationdate = activationdate;
+    public void setdate(String date) {
+        this.date = date;
     }
 
-    public String getEducationleveldesc() {
-        return educationleveldesc;
+    public String geteducation() {
+        return education;
     }
 
-    public void setEducationleveldesc(String educationleveldesc) {
-        this.educationleveldesc = educationleveldesc;
+    public void seteducation(String education) {
+        this.education = education;
     }
 }

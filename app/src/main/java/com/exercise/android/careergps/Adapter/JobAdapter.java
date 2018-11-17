@@ -42,16 +42,17 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
         holder.jobtitletext.setText(data.get(position).getjobtitle());
-        holder.salary.setText(data.get(position).getManagerialleveldesc());
-        holder.displayname.setText(data.get(position).getSalary());
-        holder.activationdate.setText(data.get(position).getActivationdate());
+        holder.salary.setText(data.get(position).getSalary());
+        holder.displayname.setText(data.get(position).getDisplayname());
+        holder.activationdate.setText(data.get(position).getdate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(mContext, JobActivity.class);
+                myIntent.putExtra("p_id", data.get(position).getId());
                 ActivityOptions options = ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
                 mContext.startActivity(myIntent, options.toBundle());
             }
