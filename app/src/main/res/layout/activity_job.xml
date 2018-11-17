@@ -151,36 +151,6 @@
 
                     </LinearLayout>
 
-
-                    <!-- managerial level -->
-                    <LinearLayout
-                        style="@style/job_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            style="@style/job_itemtitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Managerial level" />
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="20dp"
-                            android:background="#888888" />
-
-                        <TextView
-                            android:id="@+id/managerialleveldesc"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:gravity="center_vertical"
-                            android:text="Middle"
-                            android:textSize="15dp" />
-
-                    </LinearLayout>
-
                     <!-- Salary -->
                     <LinearLayout
                         style="@style/job_item"
