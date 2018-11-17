@@ -39,4 +39,22 @@
         <item name="android:textSize">14dp</item>
     </style>
 
+    <!-- For item linearlayout in job page -->
+    <style name="job_item">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <!-- For item title in job page -->
+    <style name="job_itemtitle">
+        <item name="android:width">100dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

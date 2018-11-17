@@ -61,7 +61,7 @@
 
                 </LinearLayout>
 
-                <!-- managerial level -->
+                <!-- Industry -->
                 <LinearLayout
                     style="@style/search_item"
                     android:layout_width="match_parent"
@@ -70,11 +70,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Managerial level" />
+                        android:text="Industry" />
 
 
                     <Spinner
-                        android:id="@+id/managerialleveldesc"
+                        android:id="@+id/industrydesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"

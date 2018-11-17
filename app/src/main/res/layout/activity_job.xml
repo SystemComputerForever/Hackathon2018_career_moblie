@@ -31,19 +31,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
-                    <!-- Job title -->
-                    <TextView
-                        android:id="@+id/jobtitletext"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#11000000"
-                        android:padding="5dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:text="Executive Secretary &#38; Senior HR Administrator - People Department (Ref: CFL-P-ESSHRA)"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
                     <!-- job id -->
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -58,33 +45,41 @@
 
                         <TextView
                             android:layout_width="wrap_content"
+
                             android:layout_height="wrap_content"
                             android:text="2651369" />
 
                     </LinearLayout>
 
-                    <!-- job field -->
-                    <LinearLayout
+                    <!-- Job title -->
+                    <TextView
+                        android:id="@+id/jobtitletext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:background="#11000000"
+                        android:padding="5dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="Executive Secretary / Senior HR Administrator - People Department (Ref: CFL-P-ESSHRA)"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <!-- job field -->
+                    <LinearLayout
+                        style="@style/job_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Job Field"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Job Field" />
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="20dp"
-                            android:background="#888888"/>
+                            android:background="#888888" />
 
                         <TextView
                             android:id="@+id/fielddesc"
@@ -100,21 +95,15 @@
 
                     <!-- Company(Publisher) name-->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Publisher"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Publisher" />
 
                         <View
                             android:layout_width="1dp"
@@ -135,21 +124,15 @@
 
                     <!-- company field -->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Company felid"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Company felid" />
 
                         <View
                             android:layout_width="1dp"
@@ -171,21 +154,15 @@
 
                     <!-- managerial level -->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Managerial level"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Managerial level" />
 
                         <View
                             android:layout_width="1dp"
@@ -206,21 +183,15 @@
 
                     <!-- Salary -->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Salary"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Salary" />
 
                         <View
                             android:layout_width="1dp"
@@ -240,21 +211,15 @@
 
                     <!-- Job description -->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Job description"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Job description" />
 
                         <View
                             android:layout_width="1dp"
@@ -274,21 +239,15 @@
 
                     <!-- experience request -->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Miniumn experience"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Miniumn experience" />
 
                         <View
                             android:layout_width="1dp"
@@ -309,21 +268,15 @@
 
                     <!-- education level request -->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Education level"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Education level" />
 
                         <View
                             android:layout_width="1dp"
@@ -344,21 +297,15 @@
 
                     <!-- skills request -->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Skills request"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Skills request" />
 
                         <View
                             android:layout_width="1dp"
@@ -372,28 +319,22 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:gravity="center_vertical"
-                            android:text="JavaScript,PHP,jQuery,CSS,Web Development,MySQL,HTML,Java,AJAX,SQL"
+                            android:text="JavaScript, PHP, jQuery, CSS, Web Development, MySQL, HTML, Java, AJAX, SQL"
                             android:textSize="15dp" />
 
                     </LinearLayout>
 
                     <!-- post datetime -->
                     <LinearLayout
+                        style="@style/job_item"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
+                            style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Activition date"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:text="Activition date" />
 
                         <View
                             android:layout_width="1dp"
@@ -415,7 +356,7 @@
                     <!-- Button -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
                         android:gravity="center_horizontal"
@@ -438,20 +379,11 @@
 
             <!-- a form for adding conment -->
             <android.support.v7.widget.CardView
+                android:id="@+id/add_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone">
-
-            </android.support.v7.widget.CardView>
-
-
-            <!-- when planner check their post -->
-            <!-- show if there have application -->
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:visibility="visible"
                 android:layout_margin="15dp"
-                android:visibility="gone"
                 app:cardBackgroundColor="#EEFFFFFF"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="5dp">
@@ -461,19 +393,51 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
+                    <!-- position/ department/ coontent-->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:text="All Application of this Plan"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal">
 
-                    <!-- using *listitem_accept* -->
-                    <ListView
-                        android:id="@+id/listview_application"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Postition"/>
+
+                        <EditText
+                            android:id="@+id/add_position"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Department"/>
+
+                        <EditText
+                            android:id="@+id/add_depatment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/add_content"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/textbox_rectangle"
+                            pa
+                            android:layout_height="wrap_content"
+                            android:hint="Tell us your opinion"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -498,13 +462,13 @@
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp"
                         android:text="Comment from Previous staff"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <!-- listitem_comment -->
                     <ListView
                         android:id="@+id/listview_comment"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
 
