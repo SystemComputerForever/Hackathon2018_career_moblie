@@ -21,7 +21,7 @@ public class ProfileActivity extends NoNavigationActivity implements CallBackFun
     private View progress_form;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+   public void onCreate(Bundle savedInstanceState) {
 
         setContentView(R.layout.activity_profile);
         super.onCreate(savedInstanceState);

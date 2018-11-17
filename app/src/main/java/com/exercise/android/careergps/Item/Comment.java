@@ -5,4 +5,5 @@ package com.exercise.android.careergps.Item;
  */
 
 public class Comment {
+    
 }

@@ -5,7 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import com.example.hackathon2018.happytravel.R;
+import com.exercise.android.careergps.R;
 
 /**
  * Created by Benix on 3/11/2018.
