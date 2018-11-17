@@ -133,7 +133,7 @@
                             style="@style/job_itemtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Company felid" />
+                            android:text="Industry" />
 
                         <View
                             android:layout_width="1dp"
@@ -384,7 +384,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:cardBackgroundColor="#EEFFFFFF"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="5dp">
@@ -540,6 +540,12 @@
                             android:text="show comment form"
                             android:textSize="10sp" />
                     </LinearLayout>
+
+                    <view
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#888888" />
 
                     <!-- listitem_comment -->
                     <ListView
