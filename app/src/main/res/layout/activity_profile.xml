@@ -210,8 +210,38 @@
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <!-- For employer use only-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:background="none"
+                            android:text="Invite"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
 
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
