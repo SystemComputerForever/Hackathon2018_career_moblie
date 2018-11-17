@@ -179,34 +179,6 @@
                             android:textSize="15dp" />
                     </LinearLayout>
 
-                    <!-- Job description -->
-                    <LinearLayout
-                        style="@style/job_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            style="@style/job_itemtitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Job description" />
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="20dp"
-                            android:background="#888888" />
-
-                        <TextView
-                            android:id="@+id/shortdescription"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textSize="15dp" />
-                    </LinearLayout>
-
                     <!-- experience request -->
                     <LinearLayout
                         style="@style/job_item"
@@ -323,6 +295,61 @@
 
                     </LinearLayout>
 
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- Especially for short description -->
+            <!-- Not short at all -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                app:cardBackgroundColor="#EEFFFFFF"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Job description -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:text="Job description"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="#888888" />
+
+                        <TextView
+                            android:id="@+id/shortdescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical"
+                            android:text=""
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
                     <!-- Button -->
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -338,15 +365,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:background="#11000000"
-                            android:text="Apply"
-                            android:onClick="applyonclick"/>
+                            android:onClick="applyonclick"
+                            android:text="Apply" />
 
                     </LinearLayout>
-
                 </LinearLayout>
-
             </android.support.v7.widget.CardView>
-
 
             <!-- a form for adding conment -->
             <android.support.v7.widget.CardView
