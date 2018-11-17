@@ -7,22 +7,7 @@ import java.io.Serializable;
  */
 
 public class User implements Serializable {
-    private String u_id, uname, email, phonenum, pwd, lname, fname, yob, gender, country, city, joinno;
-
-    public User(String u_id, String uname, String email, String phonenum, String pwd, String lname, String fname, String yob, String gender, String country, String city, String joinno) {
-        this.u_id = u_id;
-        this.uname = uname;
-        this.email = email;
-        this.phonenum = phonenum;
-        this.pwd = pwd;
-        this.lname = lname;
-        this.fname = fname;
-        this.yob = yob;
-        this.gender = gender;
-        this.country = country;
-        this.city = city;
-        this.joinno = joinno;
-    }
+    private String u_id, user_name, email, phone_num, pwd, last_name, first_name, yob, gender, p_img, education, exp;
 
     public String getU_id() {
         return u_id;
@@ -32,12 +17,12 @@ public class User implements Serializable {
         this.u_id = u_id;
     }
 
-    public String getUname() {
-        return uname;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public String getEmail() {
@@ -48,12 +33,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPhonenum() {
-        return phonenum;
+    public String getPhone_num() {
+        return phone_num;
     }
 
-    public void setPhonenum(String phonenum) {
-        this.phonenum = phonenum;
+    public void setPhone_num(String phone_num) {
+        this.phone_num = phone_num;
     }
 
     public String getPwd() {
@@ -64,20 +49,20 @@ public class User implements Serializable {
         this.pwd = pwd;
     }
 
-    public String getLname() {
-        return lname;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
-    public String getFname() {
-        return fname;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
     public String getYob() {
@@ -96,27 +81,43 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
-    public String getCountry() {
-        return country;
+    public String getP_img() {
+        return p_img;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setP_img(String p_img) {
+        this.p_img = p_img;
     }
 
-    public String getCity() {
-        return city;
+    public String getEducation() {
+        return education;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setEducation(String education) {
+        this.education = education;
     }
 
-    public String getJoinno() {
-        return joinno;
+    public String getExp() {
+        return exp;
     }
 
-    public void setJoino() {
-        this.joinno = joinno;
+    public void setExp(String exp) {
+        this.exp = exp;
+    }
+
+    public User(String u_id, String user_name, String email, String phone_num, String pwd, String last_name, String first_name, String yob, String gender, String p_img, String education, String exp) {
+        this.u_id = u_id;
+        this.user_name = user_name;
+        this.email = email;
+        this.phone_num = phone_num;
+        this.pwd = pwd;
+        this.last_name = last_name;
+        this.first_name = first_name;
+        this.yob = yob;
+        this.gender = gender;
+        this.p_img = p_img;
+        this.education = education;
+        this.exp = exp;
+
     }
 }

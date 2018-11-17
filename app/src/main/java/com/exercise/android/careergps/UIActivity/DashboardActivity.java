@@ -14,6 +14,7 @@ import com.exercise.android.careergps.Controller.RestController;
 import com.exercise.android.careergps.Function.CallBackFunction;
 import com.exercise.android.careergps.Function.FileHandler;
 import com.exercise.android.careergps.Item.Jobpost;
+import com.exercise.android.careergps.Item.User;
 import com.exercise.android.careergps.R;
 import com.exercise.android.careergps.UIActivity.BasicActivity.NavigationActivity;
 
@@ -34,7 +35,6 @@ public class DashboardActivity extends NavigationActivity implements  CallBackFu
     private View progress_form;
     private FileHandler fh = new FileHandler();
     private HashMap<String, String> data = new HashMap<>();
-    ;
     private RecyclerView recyclerView;
     private enum variable {
         post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfield, industrydesc, minexp, maxexp, activationdate, educationleveldesc, salary, skills;
@@ -46,6 +46,7 @@ public class DashboardActivity extends NavigationActivity implements  CallBackFu
         mContext = this;
         mydrawer = findViewById(R.id.drawer_layout);
         progress_form = findViewById(R.id.progress_form);
+        //User u = new User("1993080000000000000",)
        // new GetData().GetCountry();
         //you need to save the exist user here first
         // fh.saveFile("user",)
