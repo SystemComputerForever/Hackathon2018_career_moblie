@@ -20,7 +20,7 @@
     <!-- For item linearlayout of search page -->
     <style name="search_item">
         <item name="android:layout_marginTop">5dp</item>
-        <item name="android:background">#FFFFFF</item>
+        <item name="android:background">@color/white</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">10dp</item>
         <item name="android:paddingTop">10dp</item>
@@ -28,6 +28,7 @@
         <item name="android:paddingBottom">10dp</item>
     </style>
 
+    <!-- For the salary edittext in search page -->
     <style name="search_salary_edittext">
         <item name="android:background">@drawable/textbox_rectangle</item>
         <item name="android:gravity">center</item>

@@ -84,7 +84,7 @@
                         <View
                             android:layout_width="1dp"
                             android:layout_height="20dp"
-                            android:background="#888888" />
+                            android:background="#888888"/>
 
                         <TextView
                             android:id="@+id/fielddesc"
@@ -434,6 +434,16 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+
+            <!-- a form for adding conment -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+            </android.support.v7.widget.CardView>
+
 
             <!-- when planner check their post -->
             <!-- show if there have application -->

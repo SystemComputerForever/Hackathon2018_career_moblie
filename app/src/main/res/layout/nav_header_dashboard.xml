@@ -15,7 +15,8 @@
     <ImageView
         android:id="@+id/imageView_profileicon"
         android:layout_width="70dp"
-        android:layout_height="70dp"/>
+        android:layout_height="70dp"
+        android:src="@drawable/pic_profileicon"/>
 
     <TextView
         android:id="@+id/username"
