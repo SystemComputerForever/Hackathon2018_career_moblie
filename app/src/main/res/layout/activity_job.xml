@@ -488,6 +488,7 @@
 
                         <Button
                             android:id="@+id/btn_add"
+                            android:onClick="addcomment"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="comment" />

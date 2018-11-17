@@ -69,7 +69,7 @@ public class RestController extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         showProgress(false);
-        Log.e("result", result);
+        Log.e("resultfromcontroller", result);
         switch (result) {
             case "Server Maintenance":
                 if (mContext != null)
@@ -81,6 +81,7 @@ public class RestController extends AsyncTask<String, Void, String> {
                 break;
             default:
                 if (!result.isEmpty()) {
+                    if(mCallback != null)
                     mCallback.done(result);
                 } else {
                     ab.setAlertDialog(mContext, false, ocm.errorOnClick(mContext), null, "OK", null, "Error", "Server Maintenance").show();
