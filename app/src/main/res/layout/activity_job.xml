@@ -354,7 +354,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:visibility="gone"
-                app:cardBackgroundColor="#EEFFFFFF"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="5dp">
 
@@ -517,8 +517,8 @@
                         android:background="#888888" />
 
                     <!-- listitem_comment -->
-                    <ListView
-                        android:id="@+id/listview_comment"
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView_comment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
