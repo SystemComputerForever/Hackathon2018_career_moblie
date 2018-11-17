@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -171,6 +172,7 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
             industrydesc.setText(travelposts.get(0).getIndustrydesc());
             salary.setText(travelposts.get(0).getSalary());
             shortdescription.setText(travelposts.get(0).getShortdescription());
+            Log.e("get Short Desp",travelposts.get(0).getShortdescription());
             minexp.setText(travelposts.get(0).getMinexp());
             educationleveldesc.setText(travelposts.get(0).education);
             skills.setText(travelposts.get(0).getskills());

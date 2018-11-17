@@ -3,6 +3,7 @@ package com.exercise.android.careergps.DataHandler;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import com.exercise.android.careergps.Function.ConvertFunction;
 import com.exercise.android.careergps.MyApplication;
@@ -38,6 +39,7 @@ public class REST {
                 link += "?" + encodeddata;
 
             }
+            Log.e("link:",link);
             URL url = new URL(link);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
