@@ -125,12 +125,12 @@ public class FilterActivity extends NoNavigationActivity implements CallBackFunc
     public void searchonclick(View v) {
 
         HashMap<String, String> commentdata = new HashMap<>();
-        commentdata.put("jobtitle", keyword.getText().toString());
+        commentdata.put("jobtitle", keyword.getText() == null ? "" : keyword.getText().toString());
         commentdata.put("industrydesc", industrydesc.getSelectedItem().toString());
         commentdata.put("education", educationleveldesc.getSelectedItemPosition() + 1 + "");
         commentdata.put("experience", workexp.getSelectedItemPosition() + "");
-        commentdata.put("minsalary", minsalary.getText().toString());
-        commentdata.put("maxsalary", mazsalary.getText().toString());
+        commentdata.put("minsalary", minsalary.getText() == null ? "" : minsalary.getText().toString());
+        commentdata.put("maxsalary", mazsalary.getText() == null ? "" : mazsalary.getText().toString());
         Gson gson = new GsonBuilder().create();
         String json = gson.toJson(commentdata);
         new FileHandler().saveFile("filter", json);

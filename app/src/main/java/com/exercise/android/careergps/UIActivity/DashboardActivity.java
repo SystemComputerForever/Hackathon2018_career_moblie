@@ -97,9 +97,12 @@ public class DashboardActivity extends NavigationActivity implements CallBackFun
             data.put("minsalary", filter.getMinsalary());
             data.put("maxsalary", filter.getMaxsalary());
             data.put("edu", filter.getEducation());
+            tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/jobpost/getpostwithfilter", data, (CallBackFunction) mContext);
+            tpc.execute();
+        }else {
+            tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/jobpost/getposts", data, (CallBackFunction) mContext);
+            tpc.execute();
         }
-        tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/jobpost/getposts", data, (CallBackFunction) mContext);
-        tpc.execute();
         if (new FileHandler().isExist("filter")) {
             new FileHandler().deleteFile("filter");
         }

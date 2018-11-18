@@ -39,7 +39,7 @@ public class REST {
                 link += "?" + encodeddata;
 
             }
-            Log.e("link:",link);
+            Log.e("Log", link);
             URL url = new URL(link);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
