@@ -83,7 +83,7 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
     }
 
     private enum variable2 {
-        department, position, content, created_date, educationleveldesc, workexp
+        department, position, content, created_date,education_l, workexp
     }
 
     @Override
