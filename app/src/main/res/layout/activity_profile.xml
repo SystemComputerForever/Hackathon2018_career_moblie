@@ -23,6 +23,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <!-- edit button  for employee use only -->
+                <ImageView
+                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_profile_info" />
+
                 <!-- background color of quarter of top -->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,7 +97,8 @@
                                     android:id="@+id/educationleveldesc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Degree" />
+                                    android:text="Bachelor Degree"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -109,7 +120,8 @@
                                     android:id="@+id/workexp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="2 years" />
+                                    android:text="2 years"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -148,12 +160,18 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="I have apply 3 Job"
+                            android:text="Skills"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HTML, CSS, JavaScript, AJAX, jQuery, PHP, MySQL, Java" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:text="View my curricumlum vitae >>" />
 
                     </LinearLayout>
@@ -196,7 +214,7 @@
                             android:drawableLeft="@drawable/ic_profile_email"
                             android:drawablePadding="10dp"
                             android:gravity="center_vertical"
-                            android:text="thisismy123@email.com" />
+                            android:text="siuming623@gmail.com" />
 
                         <TextView
                             android:id="@+id/phone"
