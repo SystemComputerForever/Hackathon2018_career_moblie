@@ -10,14 +10,24 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.telecom.Call;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.exercise.android.careergps.Adapter.CommentAdapter;
+import com.exercise.android.careergps.Adapter.JobAdapter;
 import com.exercise.android.careergps.Controller.RestController;
+import com.exercise.android.careergps.Controller.RestController2;
 import com.exercise.android.careergps.Function.CallBackFunction;
+import com.exercise.android.careergps.Function.CallBackFunction2;
+import com.exercise.android.careergps.Function.FileHandler;
+import com.exercise.android.careergps.Item.Comment;
+import com.exercise.android.careergps.Item.Filter;
 import com.exercise.android.careergps.Item.Jobpost;
 import com.exercise.android.careergps.Item.User;
 import com.exercise.android.careergps.MyApplication;
@@ -36,8 +46,9 @@ import java.util.HashMap;
  * Created by Benix on 17/11/2018.
  */
 
-public class JobActivity extends NoNavigationActivity implements CallBackFunction {
+public class JobActivity extends NoNavigationActivity implements CallBackFunction, CallBackFunction2 {
     private RestController tpc;
+    private RestController2 tpc2;
     private Context mContext;
     private DrawerLayout mydrawer;
     private View progress_form;
@@ -56,6 +67,7 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
     private TextView educationleveldesc;
     private TextView skills;
     private TextView activationdate;
+    private TextView job_id;
 
     private Gson gson = new Gson();
     private String pid;
@@ -63,9 +75,15 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
     private HashMap<String, String> data = new HashMap<>();
     public static final String chosen1 = "Apply";
     public static final String chosen2 = "CANCEL";
+    private RecyclerView recyclerView;
+
 
     private enum variable {
         post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfielddesc, industrydesc, minexp, maxexp, date, education, salary, skills
+    }
+
+    private enum variable2 {
+        department, position, content, created_date, educationleveldesc, workexp
     }
 
     @Override
@@ -77,6 +95,8 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
         pid = intent.getExtras().getString("p_id");
         btn_join = findViewById(R.id.btn_join);
         mContext = this;
+        job_id = findViewById(R.id.job_ud);
+        job_id.setText(pid);
         jobtitletext = findViewById(R.id.jobtitletext);
         fielddesc = findViewById(R.id.fielddesc);
         displayname = findViewById(R.id.displayname);
@@ -122,6 +142,9 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
                 }, 800);
             }
         });
+        GridLayoutManager gl = new GridLayoutManager(this, 1);
+        recyclerView = findViewById(R.id.recyclerView_comment);
+        recyclerView.setLayoutManager(gl); //設定 LayoutManager
        /* RecyclerView recyclerView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -147,9 +170,22 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
     }
 
     public void refresh() {
-        data.put("p_id", pid);
-        tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/jobpost/getpostsbypid", data, (CallBackFunction) mContext);
-        tpc.execute();
+        //  String filterdata = new FileHandler().readFile("filter");
+        // Filter filter = gson.fromJson(filterdata, Filter.class);
+        HashMap<String, String> data2 = new HashMap<>();
+        data2.put("post_id", pid);
+        tpc2 = new RestController2(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/comment2/getcomment", data2, (CallBackFunction2) mContext);
+        tpc2.execute();
+        synchronized (mContext) {
+            data.put("p_id", pid);
+            tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/jobpost/getpostsbypid", data, (CallBackFunction) mContext);
+            tpc.execute();
+        }
+
+
+        //   new FileHandler().deleteFile("filter");
+
+
     }
 
     @Override
@@ -157,7 +193,7 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
         ArrayList<Jobpost> travelposts = new ArrayList<Jobpost>();
         try {
             JSONArray travelpostsary = new JSONArray(result);
-            for (int i = 0; i < travelpostsary.length() ; i++) {
+            for (int i = 0; i < travelpostsary.length(); i++) {
                 Jobpost onepost = new Jobpost(travelpostsary.getJSONObject(i).getString(variable.values()[0].name()), travelpostsary.getJSONObject(i).getString(variable.values()[1].name()), travelpostsary.getJSONObject(i).getString(variable.values()[2].name()), travelpostsary.getJSONObject(i).getString(variable.values()[3].name()), travelpostsary.getJSONObject(i).getString(variable.values()[4].name()), travelpostsary.getJSONObject(i).getString(variable.values()[5].name()), travelpostsary.getJSONObject(i).getString(variable.values()[6].name()), travelpostsary.getJSONObject(i).getString(variable.values()[7].name()), travelpostsary.getJSONObject(i).getString(variable.values()[8].name()), travelpostsary.getJSONObject(i).getString(variable.values()[9].name()), travelpostsary.getJSONObject(i).getString(variable.values()[10].name()), travelpostsary.getJSONObject(i).getString(variable.values()[11].name()), travelpostsary.getJSONObject(i).getString(variable.values()[12].name()), travelpostsary.getJSONObject(i).getString(variable.values()[13].name()));
                 travelposts.add(onepost);
             }
@@ -167,7 +203,7 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
             industrydesc.setText(travelposts.get(0).getIndustrydesc());
             salary.setText(travelposts.get(0).getSalary());
             shortdescription.setText(travelposts.get(0).getShortdescription());
-            Log.e("get Short Desp",travelposts.get(0).getShortdescription());
+            Log.e("get Short Desp", travelposts.get(0).getShortdescription());
             minexp.setText(travelposts.get(0).getMinexp());
             educationleveldesc.setText(travelposts.get(0).education);
             skills.setText(travelposts.get(0).getskills());
@@ -181,9 +217,30 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
 
     }
 
+    @Override
+    public void done2(String result) {
+        Log.e("hey", "hey");
+        ArrayList<Comment> travelposts = new ArrayList<Comment>();
+
+        JSONArray travelpostsary = null;
+        try {
+            travelpostsary = new JSONArray(result);
+            for (int i = 0; i < travelpostsary.length(); i++) {
+                Comment onepost = new Comment(travelpostsary.getJSONObject(i).getString(variable2.values()[0].name()), travelpostsary.getJSONObject(i).getString(variable2.values()[1].name()), travelpostsary.getJSONObject(i).getString(variable2.values()[2].name()), travelpostsary.getJSONObject(i).getString(variable2.values()[3].name()), travelpostsary.getJSONObject(i).getString(variable2.values()[4].name()), travelpostsary.getJSONObject(i).getString(variable2.values()[5].name()));
+                travelposts.add(onepost);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        CommentAdapter myAdapter = new CommentAdapter(travelposts, mContext);
+        recyclerView.setAdapter(myAdapter); //設定 Adapter*/
+
+
+    }
+
     public void commentonclick(View v) {
 
-        if (postjob.getVisibility() == View.GONE ){
+        if (postjob.getVisibility() == View.GONE) {
             postjob.setVisibility(View.VISIBLE);
 
             ((Button) v).setText("Hide Comment Form");
@@ -204,13 +261,15 @@ public class JobActivity extends NoNavigationActivity implements CallBackFunctio
         User user = gson.fromJson(restoredText, User.class);
         HashMap<String, String> commentdata = new HashMap<>();
         commentdata.put("u_id", user.getU_id());
-        commentdata.put("comment", add_content.getText().toString());
+        commentdata.put("post_id",pid);
+        commentdata.put("content", add_content.getText().toString());
         commentdata.put("position", add_position.getText().toString());
         commentdata.put("department", add_department.getText().toString());
         synchronized (mContext) {
-            tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/comment/addcomment", commentdata, null);
+            tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/comment2/addcomment", commentdata, null);
             tpc.execute();
+            postjob.setVisibility(View.GONE);
         }
-        //refresh();
+        refresh();
     }
 }

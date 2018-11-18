@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.exercise.android.careergps.Item.Comment;
 import com.exercise.android.careergps.Item.Jobpost;
 import com.exercise.android.careergps.MyApplication;
 import com.exercise.android.careergps.R;
@@ -22,10 +23,10 @@ import java.util.ArrayList;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> {
 
-    private ArrayList<Jobpost> data;
+    private ArrayList<Comment> data;
     private Context mContext;
 
-    public CommentAdapter(ArrayList<Jobpost> data, Context mContext) {
+    public CommentAdapter(ArrayList<Comment> data, Context mContext) {
         this.data = data;
         this.mContext = mContext;
     }
@@ -42,11 +43,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        holder.jobtitletext.setText(data.get(position).getjobtitle());
-        holder.salary.setText(data.get(position).getSalary());
-        holder.displayname.setText(data.get(position).getDisplayname());
-        holder.activationdate.setText(data.get(position).getdate());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.position.setText(data.get(position).getPosition());
+        holder.department.setText(data.get(position).getDepartment());
+        holder.educationleveldesc.setText(data.get(position).getEducationleveldesc());
+        holder.workexp.setText(data.get(position).getWorkexp());
+        holder.add_content.setText(data.get(position).getContent());
+        holder.post_datetime.setText(data.get(position).getCreated_date());
+        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(mContext, JobActivity.class);
@@ -54,7 +57,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                 ActivityOptions options = ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
                 mContext.startActivity(myIntent, options.toBundle());
             }
-        });
+        });*/
     }
 
     @Override
@@ -73,6 +76,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         TextView educationleveldesc;
         TextView workexp;
         TextView add_content;
+        TextView post_datetime;
 
 
         ViewHolder(View v) {
@@ -81,7 +85,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             department = v.findViewById(R.id.department);
             educationleveldesc = v.findViewById(R.id.educationleveldesc);
             workexp = v.findViewById(R.id.workexp);
-            add_content = v.findViewById(R.id.add_content);
+            add_content = v.findViewById(R.id.content);
+            post_datetime = v.findViewById(R.id.post_datetime);
         }
     }
 }

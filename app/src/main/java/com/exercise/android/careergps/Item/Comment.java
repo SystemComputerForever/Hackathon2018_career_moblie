@@ -7,13 +7,13 @@ import java.io.Serializable;
  */
 
 public class Comment implements Serializable {
-    private String department, position, content, post_deadline, educationleveldesc, workexp;
+    private String department, position, content, created_date, educationleveldesc, workexp;
 
-    public Comment(String department, String position, String content, String post_deadline, String educationleveldesc, String workexp) {
+    public Comment(String department, String position, String content, String created_date, String educationleveldesc, String workexp) {
         this.department = department;
         this.position = position;
         this.content = content;
-        this.post_deadline = post_deadline;
+        this.created_date = created_date;
         this.educationleveldesc = educationleveldesc;
         this.workexp = workexp;
     }
@@ -42,12 +42,12 @@ public class Comment implements Serializable {
         this.content = content;
     }
 
-    public String getPost_deadline() {
-        return post_deadline;
+    public String getCreated_date() {
+        return created_date;
     }
 
-    public void setPost_deadline(String post_deadline) {
-        this.post_deadline = post_deadline;
+    public void setCreated_date(String created_date) {
+        this.created_date = created_date;
     }
 
     public String getEducationleveldesc() {

@@ -1,5 +1,6 @@
 package com.exercise.android.careergps.UIActivity.BasicActivity;
 
+import android.app.ActionBar;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +19,8 @@ import android.widget.ImageView;
 
 import com.exercise.android.careergps.MyApplication;
 import com.exercise.android.careergps.R;
+import com.exercise.android.careergps.UIActivity.DashboardActivity;
+import com.exercise.android.careergps.UIActivity.FilterActivity;
 import com.exercise.android.careergps.UIActivity.ProfileActivity;
 
 /**
@@ -33,6 +37,15 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ImageView search = toolbar.findViewById(R.id.btn_search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(mContext, FilterActivity.class);
+                ActivityOptions options = ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
+                mContext.startActivity(myIntent, options.toBundle());
+            }
+        });
         mContext = this;
       /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -50,15 +63,26 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         imgicon = navigationView.getHeaderView(0).findViewById(R.id.imageView_profileicon);
+        Log.e("imgicon", imgicon.toString());
         imgicon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myIntent = new Intent(MyApplication.getAppContext(), ProfileActivity.class);
+                Log.e("clickclcik", view.toString());
+                Intent myIntent = new Intent(MyApplication.getAppContext(), ProfileActivity.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
                 mContext.startActivity(myIntent, options.toBundle());
             }
         });
+        ActionBar bar = getActionBar();
+      //bar.setDisplayShowCustomEnabled(true);
+    }
+
+    public void toprofile(View v) {
+        myIntent = new Intent(MyApplication.getAppContext(), ProfileActivity.class);
+        ActivityOptions options =
+                ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
+        mContext.startActivity(myIntent, options.toBundle());
     }
 
     @Override
@@ -70,12 +94,14 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
             super.onBackPressed();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //  getMenuInflater().inflate(R.menu.dropdownmenu, menu);
+        // getMenuInflater().inflate(R.menu.dropdownmenu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -84,7 +110,10 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.btn_search) {
+            Intent myIntent = new Intent(mContext, FilterActivity.class);
+            ActivityOptions options = ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
+            mContext.startActivity(myIntent, options.toBundle());
             return true;
         }
 
@@ -97,19 +126,17 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
         int id = item.getItemId();
 
-       /* if (id == R.id.nav_allpost) {
-            myIntent = new Intent(MyApplication.getAppContext(), TravelpostActivity.class);
-        } else if (id == R.id.nav_myplan) {
-            myIntent = new Intent(MyApplication.getAppContext(), MyplanActivity.class);
-        } else if (id == R.id.nav_history) {
-            myIntent = new Intent(MyApplication.getAppContext(), PreviouspostActivity.class);
+        if (id == R.id.nav_allpost) {
+            myIntent = new Intent(MyApplication.getAppContext(), DashboardActivity.class);
+            ActivityOptions options =
+                    ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
+            mContext.startActivity(myIntent, options.toBundle());
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+        }
 
-        }*/
-        ActivityOptions options =
-                ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
-        mContext.startActivity(myIntent, options.toBundle());
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

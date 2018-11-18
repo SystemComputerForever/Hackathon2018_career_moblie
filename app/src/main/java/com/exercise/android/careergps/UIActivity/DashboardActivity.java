@@ -1,6 +1,8 @@
 package com.exercise.android.careergps.UIActivity;
 
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -14,8 +16,10 @@ import com.exercise.android.careergps.Adapter.JobAdapter;
 import com.exercise.android.careergps.Controller.RestController;
 import com.exercise.android.careergps.Function.CallBackFunction;
 import com.exercise.android.careergps.Function.FileHandler;
+import com.exercise.android.careergps.Item.Filter;
 import com.exercise.android.careergps.Item.Jobpost;
 import com.exercise.android.careergps.Item.User;
+import com.exercise.android.careergps.MyApplication;
 import com.exercise.android.careergps.R;
 import com.exercise.android.careergps.UIActivity.BasicActivity.NavigationActivity;
 import com.google.gson.Gson;
@@ -42,7 +46,7 @@ public class DashboardActivity extends NavigationActivity implements CallBackFun
     private User u;
 
     private enum variable {
-        post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfielddesc, industrydesc, minexp, maxexp, date, education,salary, skills;
+        post_id, jobtitle, displayname, managerialleveldesc, shortdescription, fielddesc, subfielddesc, industrydesc, minexp, maxexp, date, education, salary, skills;
     }
 
     @Override
@@ -52,7 +56,7 @@ public class DashboardActivity extends NavigationActivity implements CallBackFun
         mContext = this;
         mydrawer = findViewById(R.id.drawer_layout);
         progress_form = findViewById(R.id.progress_form);
-         u = new User("1993080000000000000", "Silver2000", "silver@gmail.com", "67896789", "123456", "Wong", "Fun Fun", "1993", "1", "", "1", "1.0");
+        u = new User("1993080000000000000", "Silver2000", "silver@gmail.com", "67896789", "123456", "Wong", "Fun Fun", "1993", "1", "", "1", "1.0");
         String userjsonstring = gson.toJson(u);
         SharedPreferences.Editor editor = getSharedPreferences("mprefs", MODE_PRIVATE).edit();
         editor.putString("user", userjsonstring);
@@ -85,8 +89,20 @@ public class DashboardActivity extends NavigationActivity implements CallBackFun
     }
 
     public void refresh() {
+        if (new FileHandler().isExist("filter")) {
+            String filterdata = new FileHandler().readFile("filter");
+            Filter filter = gson.fromJson(filterdata, Filter.class);
+            data.put("jobtitle", filter.getJobtitle());
+            data.put("exp", filter.getExperience());
+            data.put("minsalary", filter.getMinsalary());
+            data.put("maxsalary", filter.getMaxsalary());
+            data.put("edu", filter.getEducation());
+        }
         tpc = new RestController(progress_form, mContext, mydrawer, "https://hackathon-718718.appspot.com/jobpost/getposts", data, (CallBackFunction) mContext);
         tpc.execute();
+        if (new FileHandler().isExist("filter")) {
+            new FileHandler().deleteFile("filter");
+        }
     }
 
     @Override
@@ -112,5 +128,11 @@ public class DashboardActivity extends NavigationActivity implements CallBackFun
             ex.printStackTrace();
         }
         //Log.e("Show post", result);
+    }
+
+    public void tofilterpage(View v) {
+        Intent myIntent = new Intent(mContext, FilterActivity.class);
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(MyApplication.getAppContext(), android.R.anim.fade_in, android.R.anim.fade_out);
+        mContext.startActivity(myIntent, options.toBundle());
     }
 }

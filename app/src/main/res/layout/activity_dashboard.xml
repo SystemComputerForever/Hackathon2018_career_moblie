@@ -7,16 +7,22 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-    
-    <include
-        layout="@layout/progress_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-    <include
-        layout="@layout/app_bar_dashboard"
+    <RelativeLayout
+        android:id="@+id/wholeform"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/progress_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            layout="@layout/app_bar_dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

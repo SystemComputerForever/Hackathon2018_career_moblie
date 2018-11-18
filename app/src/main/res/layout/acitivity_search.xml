@@ -176,6 +176,7 @@ x
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="searchonclick"
                 android:text="search by the condition" />
         </LinearLayout>
 
